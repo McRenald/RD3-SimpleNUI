@@ -8,8 +8,17 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script>
         $(function () {
-            $("button").click(function () {
-                $.post(`https://${GetParentResourceName()}/close`, JSON.stringify({}));
+            $("button").click(async function () {
+                //$.post(`https://${GetParentResourceName()}/close`, JSON.stringify({}));
+
+                const options = {
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json; charset=UTF-8",
+                    },
+                    body: JSON.stringify({}),
+                };
+                await fetch(`https://${GetParentResourceName()}/close`, options);
             });
 
             // Listen for NUI Events
