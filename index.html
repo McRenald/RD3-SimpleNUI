@@ -9,14 +9,30 @@
     <script>
         $(function () {
             $("button").click(function () {
-                alert(this.id);
-            })
+                $.post(`https://${GetParentResourceName()}/close`, JSON.stringify({}));
+            });
+
+            // Listen for NUI Events
+            window.addEventListener('message', function (event) {
+                var item = event.data;
+                // Open & Close main bank window
+                if (item.showmenu == true) {
+                    $(".menu").show();
+                }
+                if (item.showmenu == false) {
+                    $(".menu").hide();
+                }
+            });
+
+            // hide by default
+            $(".menu").hide();
         })
     </script>
     <style>
         #menu {
             height: auto;
             background-color: antiquewhite;
+            visibility: hidden;
         }
 
         .tab {
