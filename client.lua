@@ -3,7 +3,7 @@ RegisterCommand("simpleui", function()
 	SetNuiFocus(true, true)
 end, false)
 
-RegisterNUICallback('close', function()
+RegisterNUICallback('simpleui:nui:close', function()
 	SendNUIMessage({showmenu = false})
 	SetNuiFocus(false, false)
 end)

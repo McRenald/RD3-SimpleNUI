@@ -18,7 +18,7 @@
                     },
                     body: JSON.stringify({}),
                 };
-                await fetch(`https://${GetParentResourceName()}/close`, options);
+                await fetch(`https://${GetParentResourceName()}/simpleui:nui:close`, options);
             });
 
             // Listen for NUI Events
